@@ -1,0 +1,25 @@
+{
+  "name": "sequelize_enum_utils",
+  "version": "1.0.1",
+  "description": "Utils for enum handling in sequelize migrations with postgres",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "NodeJS",
+    "PostgreSQL",
+    "ENUM",
+    "Migration",
+    "Sequelize"
+  ],
+  "author": "Federico Antunes <federico.antunes.dev@gmail.com>",
+  "license": "MIT",
+  "dependencies": {
+    "sequelize": "^6.37.3",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.6.2",
+    "winston": "^3.14.2"
+  }
+}
