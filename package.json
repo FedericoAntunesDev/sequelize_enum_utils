@@ -7,6 +7,11 @@
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/FedericoAntunesDev/sequelize_enum_utils"
+  },
+  "homepage": "https://github.com/FedericoAntunesDev/sequelize_enum_utils?tab=readme-ov-file#enum-utils-sequelize-postgresql",
   "keywords": [
     "NodeJS",
     "PostgreSQL",
