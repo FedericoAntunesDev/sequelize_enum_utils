@@ -17,6 +17,11 @@ export const commonQueries = {
     CREATE TYPE ${enumName} AS ENUM (${enumMembersFormatted});
     `,
 
+  addMember: (enumName: string, newEnumMember: string) =>
+    `
+    ALTER TYPE ${enumName} ADD VALUE '${newEnumMember}';
+    `,
+
   createTemporalTextColumn: (tableName: string, columnName: string) =>
     `
     ALTER TABLE ${tableName} ADD COLUMN ${columnName} TEXT NULL;

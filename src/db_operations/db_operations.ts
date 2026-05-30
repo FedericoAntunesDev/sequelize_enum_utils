@@ -29,6 +29,14 @@ async function createEnum(
   await queryInterface.sequelize.query(queries.common.createEnum(enumName, enumMembersFormatted));
 }
 
+async function addMember(
+  queryInterface: QueryInterface,
+  enumName: string,
+  newEnumMember: string,
+): Promise<void> {
+  await queryInterface.sequelize.query(queries.common.addMember(enumName, newEnumMember));
+}
+
 async function createTemporalTextColumn(
   queryInterface: QueryInterface,
   tableName: string,
@@ -85,6 +93,7 @@ export const dbOperations = {
   getEnumColumnDetails,
   getEnumData,
   createEnum,
+  addMember,
   createEnumColumn,
   createTemporalTextColumn,
   populateEnumColumn,

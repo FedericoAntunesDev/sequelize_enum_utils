@@ -1,2 +1,2 @@
 export { GetEnumColumnDetailsQuery, GetEnumData } from './responses';
-export { RemoveMemberParams } from './common.types';
+export { AddMemberParams, RemoveMemberParams } from './common.types';
