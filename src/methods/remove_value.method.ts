@@ -10,7 +10,8 @@ import { RemoveMemberParams } from '../types/common.types';
  * @param {string} removeMemberParams.enumName - The name of the enum to modify.
  * @param {string[]} removeMemberParams.enumMembersToRemove - The members to remove from the enum.
  * @param {string} [removeMemberParams.defaultEnumValue] - The default value to set if a removed member is used.
- * @throws Will throw an error if the default enum value is not present in the enum.
+ * @throws Will throw an error if the default enum value is not present in the enum
+ * or is removed from the resulting enum definition.
  * @returns {Promise<void>} A promise that resolves when the operation is complete.
  */
 export async function removeMember(removeMemberParams: RemoveMemberParams) {
@@ -27,8 +28,17 @@ export async function removeMember(removeMemberParams: RemoveMemberParams) {
     throw new Error(`Default enum value ${defaultEnumValue} is not present in the enum ${enumName}`);
   }
 
-  const newEnumMembersFormatted: string = enumData
-    .filter((enumMember) => !enumMembersToRemove.includes(enumMember))
+  const resultingEnumMembers: string[] = enumData.filter(
+    (enumMember) => !enumMembersToRemove.includes(enumMember),
+  );
+
+  if (defaultEnumValue && !resultingEnumMembers.includes(defaultEnumValue)) {
+    throw new Error(
+      `Default enum value ${defaultEnumValue} is not present in the resulting enum ${enumName}`,
+    );
+  }
+
+  const newEnumMembersFormatted: string = resultingEnumMembers
     .map((value) => `'${value}'`)
     .join(', ');
 

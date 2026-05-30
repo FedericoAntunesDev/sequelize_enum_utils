@@ -1,3 +1,3 @@
-import { removeMember } from './methods';
+import { addMember, removeMember } from './methods';
 
-export const enumUtils = { removeMember };
+export const enumUtils = { addMember, removeMember };
